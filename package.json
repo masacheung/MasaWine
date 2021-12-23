@@ -25,6 +25,15 @@
   },
   "homepage": "https://github.com/masacheung/MasaWine#readme",
   "dependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "babel-loader": "^8.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
+    "redux-logger": "^3.0.6",
     "webpack": "^5.65.0"
   },
   "devDependencies": {
