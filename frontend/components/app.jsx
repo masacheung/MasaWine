@@ -7,8 +7,8 @@ import SplashPages from "./splash_page";
 const App = () => (
     <div>
         <Routes>
+            {/* <Route path="*" element={<RoutingError/>} /> */}
             <Route exact path="/" element={<SplashPages/>}/>
-            <Route path="*" element={<RoutingError/>} />
         </Routes>
     </div>
 )
