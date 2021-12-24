@@ -1,13 +1,14 @@
 import React from "react";
-import {Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import RoutingError from "./routing_error";
-import { Route } from "react-router";
+
+import SplashPages from "./splash_page";
 
 const App = () => (
     <div>
         <Routes>
-            <Route exact path="/" component={SplashPages}/>
-            <Route component={RoutingError} />
+            <Route exact path="/" element={<SplashPages/>}/>
+            <Route path="*" element={<RoutingError/>} />
         </Routes>
     </div>
 )
