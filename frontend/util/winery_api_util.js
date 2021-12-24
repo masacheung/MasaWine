@@ -1,20 +1,20 @@
 export const fetchWineries = () => {
     return $.ajax({
-        url: "/api/wineries",
+        url: "api/wineries",
         method: 'GET'
     })
 }
 
 export const fetchWinery = (wineryId) => {
     return $.ajax({
-        url: `/api/wineries/${wineryId}`,
+        url: `api/wineries/${wineryId}`,
         method: 'GET'
     })
 }
 
 export const createWinery = (winery) => {
     return $.ajax({
-        url: "/api/wineries",
+        url: "api/wineries",
         method: 'POST',
         data: {winery}
     })
@@ -22,7 +22,7 @@ export const createWinery = (winery) => {
 
 export const updateWinery = (winery) => {
     return $.ajax({
-        url: `/api/wineries/${winert.id}`,
+        url: `api/wineries/${winery.id}`,
         method: 'PATCH',
         data: {winery}
     })
@@ -30,7 +30,7 @@ export const updateWinery = (winery) => {
 
 export const deleteWinery = (wineryId) => {
     return $.ajax({
-        url: `/api/wineries/${wineryId}`,
+        url: `api/wineries/${wineryId}`,
         method: 'DELETE'
     })
 }
