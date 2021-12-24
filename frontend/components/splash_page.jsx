@@ -15,7 +15,10 @@ const SplashPages = () => {
                         <a href="https://github.com/masacheung" target="_blank" rel="noreferrer noopener">Github</a>
                     </li>
                     <li>
-                        <Link to="/wineries" className="logo-navbar">Wineries</Link>
+                        <Link to="/wineries">Wineries</Link>
+                    </li>
+                    <li>
+                        <Link to="/wines">Wines</Link>
                     </li>
                 </ul>
             </div>
