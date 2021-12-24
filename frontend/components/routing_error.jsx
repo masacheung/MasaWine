@@ -5,7 +5,7 @@ const RoutingError = props => {
     return (
         <div className="notfound">
             <img src={window.notfoundimg} className="notfoundimg"/>
-            <Link to="/">Back To MasaNote!!!</Link>
+            <Link to="/">Back To MasaWine!!!</Link>
         </div>
     )
 }
