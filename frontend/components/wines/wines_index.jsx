@@ -1,20 +1,20 @@
 import React from "react";
 
-export default class WineriesIndex extends React.Component {
+export default class WinesIndex extends React.Component {
     constructor(props){
         super(props);
     }
 
     componentDidMount(){
-        this.props.fetchWineries();
+        this.props.fetchWines();
     }
 
     render() {
-        console.log(this.props.wineries);
+        console.log(this.props.wines);
 
         return (
             <div>
-                Wineries Page
+                Wines Page
             </div>
         )
     }
