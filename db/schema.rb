@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_043717) do
+ActiveRecord::Schema.define(version: 2021_12_25_192118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 2021_12_23_043717) do
     t.string "name", null: false
     t.string "country", null: false
     t.index ["name", "country"], name: "index_wineries_on_name_and_country", unique: true
+  end
+
+  create_table "wines", force: :cascade do |t|
+    t.string "wine_full", null: false
+    t.integer "vintage", null: false
+    t.string "color", null: false
+    t.string "country", null: false
+    t.string "region", null: false
+    t.string "alternate_bottle_size"
+    t.integer "winery_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wine_full", "winery_id"], name: "index_wines_on_wine_full_and_winery_id", unique: true
   end
 
 end
