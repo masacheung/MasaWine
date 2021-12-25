@@ -1,0 +1,1 @@
+json.extract! wine, :id, :wine_full, :vintage, :color, :region, :alternate_bottle_size, :winery_id, :created_at, :updated_at
