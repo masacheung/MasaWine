@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import NavBar from "./navbar/navbar"
 
 const SplashPages = () => {
     return (
     <div className="splash">
-        <header>
+        {/* <header>
             <div className="navbar">
                 <Link to="/" className="logo-navbar">
                     <img src={window.wine} className="logo-nav"/>
@@ -22,7 +23,7 @@ const SplashPages = () => {
                     </li>
                 </ul>
             </div>
-        </header>
+        </header> */}
         <div className="splash-slogan">
             <div className="slogan">
                 MasaWine~~~
