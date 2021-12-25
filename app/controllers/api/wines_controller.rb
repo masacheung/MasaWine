@@ -42,7 +42,7 @@ class Api::WinesController < ApplicationController
 
     private
     def wine_params
-        params.require(:wine).permit(:wine_full, :vintage, :color, :country, :region, :alternate_bottle_size, :winery_id)
+        params.permit(:wine_full, :vintage, :color, :country, :region, :alternate_bottle_size, :winery_id)
     end
 
 end
