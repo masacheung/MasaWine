@@ -10,6 +10,7 @@ const App = () => (
         <Switch>
             <Route exact path="/" component={SplashPages}/>
             <Route exact path="/wineries" component={WineriesIndexContainer} />
+            <Route />
             <Route component={RoutingError} />
         </Switch>
     </div>
