@@ -1,4 +1,5 @@
 import React from "react";
+import Top from "./top/top"
 
 const SplashPages = () => {
     return (
@@ -26,6 +27,7 @@ const SplashPages = () => {
             <div className="slogan">
                 MasaWine~~~
             </div>
+            <Top/>
         </div>
         <hr/>
         <div className="splash-footer">
