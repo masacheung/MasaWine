@@ -10,11 +10,16 @@
 
     li:first-child {
         font-size: 20px;
+        font-weight: bold;
         border-top: 1px solid #ffffff;
     }
     
     li:nth-child(even) {
         background-color: #dddddd;
+    }
+
+    li:last-child {
+        margin-bottom: 5%;
     }
 
     li {
@@ -29,6 +34,7 @@
             display: flex;
             width: 5%;
             flex-direction: row;
+ 
         }
 
         .sortImg{
@@ -66,4 +72,17 @@
 
 .sub-header-wine:hover + .note {
     display: block;
+}
+
+.search {
+
+    input, input:focus {
+        border: 0;
+        width: 80%;
+        font-size: 20px;
+        margin-left: -5%;
+        margin-top: 2%;
+        appearance: none;
+        outline: none;
+    }
 }

@@ -6,10 +6,10 @@ export default class Top extends React.Component {
         super(props);
         this.state = {
             top: [],
-            showPlus: true,
-            order: true        
+            search: ""
         }
         this.sortByRank = this.sortByRank.bind(this);
+        this.searchEngine = this.searchEngine.bind(this);
     }
 
     componentDidMount(){
@@ -21,15 +21,41 @@ export default class Top extends React.Component {
 
     sortByRank(){
         let arr = this.state.top;
-
         this.setState({top: arr.reverse()});
+    }
+
+    update(field){
+        return e => {
+            this.setState({[field]: e.target.value})
+        }
+    }
+
+    searchEngine(){
 
     }
 
     render() {
+        let display;
 
+        if(this.state.search.length > 0){
+            display = this.state.top.filter(wine =>
+                wine.wine_full.toLowerCase().includes(this.state.search.toLowerCase()) ||
+                wine.winery_full.toLowerCase().includes(this.state.search.toLowerCase()))
+        }else {
+            display = this.state.top;
+        }
         return(
             <div className="list">
+                <div className="search">
+                    <form>
+                        <input 
+                            type="text"
+                            placeholder="Search by wine / winery"
+                            onChange={this.update("search")}
+                            value={this.state.search}
+                        />
+                    </form>
+                </div>
                 <ul className="top100-ul">
                     <li>
                         <button className="sub-header-rank" onClick={this.sortByRank}>
@@ -40,14 +66,14 @@ export default class Top extends React.Component {
                         <div className="sub-header-winery">Winery</div>
                         <div className="sub-header-vintage">Vintage</div>
                     </li>
-                    {this.state.top.map(wine => 
+                    {display.map(wine => 
                             <li key={wine.id}>
                                 <div className="sub-header-rank">{wine.top100_rank}</div>
                                 <div className="sub-header-wine">
                                     {wine.wine_full}
                                 </div>
                                 <div className="note">
-                                    Testing Note<br/><br/>
+                                    Tasting Note<br/><br/>
                                     {wine.note}
                                 </div>
 
