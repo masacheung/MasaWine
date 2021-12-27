@@ -10,12 +10,14 @@ export default class Top extends React.Component {
             sortedRank: true,
             sortedName: false,
             sortedWinery: false,
+            sortedVintage: false,
             sortedScore: false,
             sortedPrice: false
         }
         this.sortByRank = this.sortByRank.bind(this);
         this.sortByWine = this.sortByWine.bind(this);
         this.sortByWinery = this.sortByWinery.bind(this);
+        this.sortByVintage = this.sortByVintage.bind(this);
         this.sortByScore = this.sortByScore.bind(this);
         this.sortByPrice = this.sortByPrice.bind(this);
     }
@@ -39,6 +41,7 @@ export default class Top extends React.Component {
                     sortedRank: !this.state.sortedRank, 
                     sortedName: false,
                     sortedWinery: false,
+                    sortedVintage: false,
                     sortedScore: false,
                     sortedPrice: false});
     }
@@ -65,6 +68,7 @@ export default class Top extends React.Component {
                     sortedName: !this.state.sortedName, 
                     sortedRank: false,
                     sortedWinery: false,
+                    sortedVintage: false,
                     sortedScore: false,
                     sortedPrice: false});
     }
@@ -91,8 +95,37 @@ export default class Top extends React.Component {
                     sortedWinery: !this.state.sortedWinery, 
                     sortedRank: false,
                     sortedName: false,
+                    sortedVintage: false,
                     sortedScore: false,
                     sortedPrice: false});
+    }
+
+    sortByVintage(){
+        let na = this.state.top.filter(wine => wine.vintage.includes("NV"));
+        let rest = this.state.top.filter(wine => !wine.vintage.includes("NV"));
+
+        rest = rest.sort((a,b) => {
+            return b.vintage - a.vintage
+        })
+
+        if(!this.state.sortedVintage){
+            rest = rest.reverse();
+            this.setState({top: rest.concat(na), 
+                sortedVintage: !this.state.sortedVintage, 
+                sortedRank: false,
+                sortedName: false,
+                sortedWinery: false,
+                sortedScore: false,
+                sortedPrice: false});
+        }else{
+            this.setState({top: na.concat(rest), 
+                sortedVintage: !this.state.sortedVintage, 
+                sortedRank: false,
+                sortedName: false,
+                sortedWinery: false,
+                sortedScore: false,
+                sortedPrice: false});
+        }
     }
 
     sortByScore(){
@@ -107,6 +140,7 @@ export default class Top extends React.Component {
                     sortedScore: !this.state.sortedScore,
                     sortedRank: false,
                     sortedName: false,
+                    sortedVintage: false,
                     sortedWinery: false,
                     sortedPrice: false});
     }
@@ -124,6 +158,7 @@ export default class Top extends React.Component {
                     sortedRank: false,
                     sortedName: false,
                     sortedWinery: false,
+                    sortedVintage: false,
                     sortedScore: false});
     }
 
@@ -170,7 +205,10 @@ export default class Top extends React.Component {
                             Winery
                             <img className="sortImg" src={window.sort}/>
                         </button>
-                        <div className="sub-header-vintage">Vintage</div>
+                        <button className="sub-header-vintage" onClick={this.sortByVintage}>
+                            Vintage
+                            <img className="sortImg" src={window.sort}/>
+                        </button>
                         <button className="sub-header-score" onClick={this.sortByScore}>
                             Score
                             <img className="sortImg" src={window.sort}/>
