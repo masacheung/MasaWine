@@ -67,7 +67,7 @@
     li {
         display: flex;
         align-items: center;
-        height: auto;
+        height: 40px;
         font-size: 14px;
         padding: 5px 5px 5px 5px;
 
@@ -79,7 +79,7 @@
         .sub-header-wine {
             width: 55%;
             flex-direction: row;
-            line-height: auto;
+            line-height: 24px;
         }
 
         .sub-header-winery {
@@ -93,14 +93,15 @@
 .note {
     width: 20%;
     padding: 20px;
+    margin-bottom: -20%;
     font-size: 14px;
     position: absolute;
-    bottom: 5%;
-    left: 5%;
-    right: 5%;
+    right: 50%;
     background-color: #fff;
-    padding: .5em;
+    // padding: .5em;
     display: none;
+    border-radius: 5%;
+    border: 1px solid black;
 }
 
 .sub-header-wine:hover + .note {

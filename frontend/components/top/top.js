@@ -36,7 +36,10 @@ export default class Top extends React.Component {
                                 <div className="sub-header-wine">
                                     {wine.wine_full}
                                 </div>
-                                <div className="note">{wine.note}</div>
+                                <div className="note">
+                                    Testing Note<br/><br/>
+                                    {wine.note}
+                                </div>
 
                                 <div className="sub-header-winery">{wine.winery_full}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
