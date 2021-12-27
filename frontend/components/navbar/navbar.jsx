@@ -14,6 +14,9 @@ const NavBar = () => {
                         <a href="https://github.com/masacheung" target="_blank" rel="noreferrer noopener">Github</a>
                     </li>
                     <li>
+                        <Link to="/">Top 100</Link>
+                    </li>
+                    <li>
                         <Link to="/wineries">Wineries</Link>
                     </li>
                     <li>
