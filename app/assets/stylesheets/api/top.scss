@@ -20,7 +20,8 @@
     li {
         display: flex;
         align-items: center;
-        height: 40px;
+        min-height: 30px;
+        height: auto;
         font-size: 14px;
         padding: 5px 5px 5px 5px;
 
