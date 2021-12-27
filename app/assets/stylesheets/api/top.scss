@@ -22,6 +22,12 @@
         margin-bottom: 5%;
     }
 
+    li:nth-child(n+2){
+        .sub-header-wine, .sub-header-winery {
+            text-align: left;
+        }
+    }
+
     li {
         display: flex;
         align-items: center;
@@ -32,9 +38,10 @@
 
         .sub-header-rank {
             display: flex;
-            width: 5%;
+            width: 10%;
             flex-direction: row;
- 
+            text-align: center;
+
         }
 
         .sortImg{
@@ -43,17 +50,22 @@
         }
 
         .sub-header-wine {
-            width: 55%;
+            width: 45%;
             flex-direction: row;
             line-height: 24px;
         }
 
         .sub-header-winery {
-            width: 35%;
+            width: 30%;
             line-height: 24px;
         }
 
+        .sub-header-vintage {
+            width: 15%;
+            text-align: center;
+        }
     }
+
 }
 
 .note {
@@ -75,6 +87,9 @@
 }
 
 .search {
+
+    margin-top: 2%;
+    margin-bottom: 2%;
 
     input, input:focus {
         border: 0;
