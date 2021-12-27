@@ -1,50 +1,3 @@
-// .top100-ul {
-//     height: 50vh;
-//     list-style-type: none;
-// }
-
-// .info {
-//     display: block;
-//     text-align: left;
-//     padding-left: 35%;
-// }
-
-// .bottle {
-//     border-radius: 50%;
-//     max-width: 150px;
-//     float: left;
-//     border: 1px solid black;
-// }
-
-// h2 {
-//     color: grey;
-//     font-size: 25px;
-//     // padding-bottom: 1%;
-//     /* margin-top: -2%; */
-// }
-
-// .info {
-//     display: flex;
-//     flex-direction: column;
-//     text-align: left;
-//     padding-left: 35%;
-// }
-
-// .namePlus {
-//     display: flex;
-//     flex-direction: row;
-// }
-
-// .name {
-//     font-size: 35px;
-//     margin-left: -5%;
-//     float: left;
-// }
-
-// .top100-li {
-//     height: 15vh;
-// }
-
 .list {
     display: block;
     max-width: 80%;
@@ -56,7 +9,7 @@
 .top100-ul {
 
     li:first-child {
-        font-size: 11px;
+        font-size: 20px;
         border-top: 1px solid #ffffff;
     }
     
@@ -72,8 +25,14 @@
         padding: 5px 5px 5px 5px;
 
         .sub-header-rank {
+            display: flex;
             width: 5%;
             flex-direction: row;
+        }
+
+        .sortImg{
+            width:20px;
+            padding-right: 10px;
         }
 
         .sub-header-wine {

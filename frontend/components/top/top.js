@@ -1,22 +1,29 @@
 import React from "react";
 import axios from "axios";
-import Wine from "./wine";
 
 export default class Top extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             top: [],
-            showPlus: true
+            showPlus: true,
+            order: true        
         }
+        this.sortByRank = this.sortByRank.bind(this);
     }
 
     componentDidMount(){
         axios.get(`https://cors-anywhere.herokuapp.com/https://top-100-example.s3.amazonaws.com/t100_2021_full.json`)
             .then(res => {
-                console.log(res.data);
                 this.setState({top: res.data})
             })
+    }
+
+    sortByRank(){
+        let arr = this.state.top;
+
+        this.setState({top: arr.reverse()});
+
     }
 
     render() {
@@ -25,7 +32,10 @@ export default class Top extends React.Component {
             <div className="list">
                 <ul className="top100-ul">
                     <li>
-                        <div className="sub-header-rank">Rank</div>
+                        <button className="sub-header-rank" onClick={this.sortByRank}>
+                            Rank
+                            <img className="sortImg" src={window.sort}/>
+                        </button>
                         <div className="sub-header-wine">Wine</div>
                         <div className="sub-header-winery">Winery</div>
                         <div className="sub-header-vintage">Vintage</div>
