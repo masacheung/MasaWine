@@ -6,10 +6,16 @@ export default class Top extends React.Component {
         super(props);
         this.state = {
             top: [],
-            search: ""
+            search: "",
+            sortedRank: true,
+            sortedName: false,
+            sortedScore: false,
+            sortedPrice: false
         }
         this.sortByRank = this.sortByRank.bind(this);
-        this.searchEngine = this.searchEngine.bind(this);
+        this.sortByWine = this.sortByWine.bind(this);
+        this.sortByScore = this.sortByScore.bind(this);
+        this.sortByPrice = this.sortByPrice.bind(this);
     }
 
     componentDidMount(){
@@ -21,17 +27,78 @@ export default class Top extends React.Component {
 
     sortByRank(){
         let arr = this.state.top;
-        this.setState({top: arr.reverse()});
+        arr = arr.sort((a,b) => {
+            return b.top100_rank - a.top100_rank;
+        })
+        if(!this.state.sortedRank){
+            arr = arr.reverse();
+        }
+        this.setState({top: arr, 
+                    sortedRank: !this.state.sortedRank, 
+                    sortedName: false,
+                    sortedScore: false,
+                    sortedPrice: false});
+    }
+
+    sortByWine(){
+        let arr = this.state.top;
+        arr = arr.sort((a,b) => {
+            let a_name = a.wine_full.toLowerCase(),
+                b_name = b.wine_full.toLowerCase()
+            if (a_name < b_name){
+                return -1;
+            }
+            if (a_name > b_name){
+                return 1;
+            }
+            return 0;
+        })
+        
+        if(this.state.sortedName){
+            arr = arr.reverse();
+        }
+
+        this.setState({top: arr, 
+                    sortedName: !this.state.sortedName, 
+                    sortedRank: false,
+                    sortedScore: false,
+                    sortedPrice: false});
+    }
+
+    sortByScore(){
+        let arr = this.state.top;
+        arr = arr.sort((a,b) => {
+            return b.score - a.score;
+        })
+        if(!this.state.sortedScore){
+            arr = arr.reverse();
+        }
+        this.setState({top: arr, 
+                    sortedScore: !this.state.sortedScore,
+                    sortedRank: false,
+                    sortedName: false,
+                    sortedPrice: false});
+    }
+
+    sortByPrice(){
+        let arr = this.state.top;
+        arr = arr.sort((a,b) => {
+            return b.price - a.price;
+        })
+        if(!this.state.sortedPrice){
+            arr = arr.reverse();
+        }
+        this.setState({top: arr, 
+                    sortedPrice: !this.state.sortedPrice, 
+                    sortedRank: false,
+                    sortedName: false,
+                    sortedScore: false});
     }
 
     update(field){
         return e => {
             this.setState({[field]: e.target.value})
         }
-    }
-
-    searchEngine(){
-
     }
 
     render() {
@@ -44,7 +111,7 @@ export default class Top extends React.Component {
         }else {
             display = this.state.top;
         }
-        
+
         return(
             <div className="list">
                 <div className="search">
@@ -63,9 +130,21 @@ export default class Top extends React.Component {
                             Rank
                             <img className="sortImg" src={window.sort}/>
                         </button>
-                        <div className="sub-header-wine">Wine</div>
+                        <button className="sub-header-wine" onClick={this.sortByWine}>
+                            Wine
+                            <img className="sortImg" src={window.sort}/>
+                        </button>
                         <div className="sub-header-winery">Winery</div>
                         <div className="sub-header-vintage">Vintage</div>
+                        <button className="sub-header-score" onClick={this.sortByScore}>
+                            Score
+                            <img className="sortImg" src={window.sort}/>
+                        </button>
+                        <button className="sub-header-score" onClick={this.sortByPrice}>
+                            Price
+                            <img className="sortImg" src={window.sort}/>
+                        </button>
+
                     </li>
                     {display.map(wine => 
                             <li key={wine.id}>
@@ -80,6 +159,8 @@ export default class Top extends React.Component {
 
                                 <div className="sub-header-winery">{wine.winery_full}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
+                                <div className="sub-header-score">{wine.score}</div>
+                                <div className="sub-header-score">${wine.price}</div>
                             </li>
                        )}
                 </ul>

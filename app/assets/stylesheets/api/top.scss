@@ -15,7 +15,7 @@
     }
     
     li:nth-child(even) {
-        background-color: #dddddd;
+        background-color: #eeeeee;
     }
 
     li:last-child {
@@ -38,7 +38,7 @@
 
         .sub-header-rank {
             display: flex;
-            width: 10%;
+            width: 7%;
             flex-direction: row;
             text-align: center;
 
@@ -46,22 +46,33 @@
 
         .sortImg{
             width:20px;
-            padding-right: 10px;
         }
 
         .sub-header-wine {
-            width: 45%;
+            display: flex;
+            width: 40%;
             flex-direction: row;
             line-height: 24px;
         }
 
         .sub-header-winery {
-            width: 30%;
+            width: 26.5%;
             line-height: 24px;
+            text-align: left;
+
         }
 
         .sub-header-vintage {
-            width: 15%;
+            display: flex;
+            flex-direction: row;
+            width: 10%;
+            text-align: center;
+        }
+
+        .sub-header-score{
+            display: flex;
+            flex-direction: row;
+            width: 9%;
             text-align: center;
         }
     }
@@ -80,6 +91,8 @@
     display: none;
     border-radius: 5%;
     border: 1px solid black;
+    text-align: left;
+    justify-content: left;
 }
 
 .sub-header-wine:hover + .note {
