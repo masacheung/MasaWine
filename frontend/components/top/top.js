@@ -44,6 +44,7 @@ export default class Top extends React.Component {
         }else {
             display = this.state.top;
         }
+        
         return(
             <div className="list">
                 <div className="search">
