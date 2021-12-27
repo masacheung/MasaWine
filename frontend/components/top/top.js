@@ -6,7 +6,8 @@ export default class Top extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            top: []
+            top: [],
+            showPlus: true
         }
     }
 
@@ -19,29 +20,28 @@ export default class Top extends React.Component {
     }
 
     render() {
-        console.log(this.state.top)
+
         return(
-            <div>
-                TOP 100
+            <div className="list">
                 <ul className="top100-ul">
-                    {this.state.top.map(wine => {
-                        return (
-                            <li className="top100-li" key={wine.id}>
-                                <Wine 
-                                    winery={wine.winery_full}
-                                    wine={wine.wine_full}
-                                    vintage={wine.vintage}
-                                    color={wine.color}
-                                    country={wine.country}
-                                    region={wine.region}
-                                    size={wine.alternate_bottle_size}
-                                    year={wine.top100_year}
-                                    rank={wine.top100_rank}
-                                    wineId={wine.id}
-                                />
-                            </li>                        
-                        )
-                    })}
+                    <li>
+                        <div className="sub-header-rank">Rank</div>
+                        <div className="sub-header-wine">Wine</div>
+                        <div className="sub-header-winery">Winery</div>
+                        <div className="sub-header-vintage">Vintage</div>
+                    </li>
+                    {this.state.top.map(wine => 
+                            <li key={wine.id}>
+                                <div className="sub-header-rank">{wine.top100_rank}</div>
+                                <div className="sub-header-wine">
+                                    {wine.wine_full}
+                                </div>
+                                <div className="note">{wine.note}</div>
+
+                                <div className="sub-header-winery">{wine.winery_full}</div>
+                                <div className="sub-header-vintage">{wine.vintage}</div>
+                            </li>
+                       )}
                 </ul>
             </div>
         )

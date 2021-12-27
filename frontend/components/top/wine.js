@@ -1,28 +1,36 @@
+import axios from "axios";
 import React from "react";
 
 export default class Wine extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            showPlus: true,
+            note: ""
+        }
+    }
+
+    componentDidMount(){
+        axios.get(`https://cors-anywhere.herokuapp.com/https://top-100-example.s3.amazonaws.com/${this.props.wineId}.json`)
+            .then(res => {
+                console.log(res.data)
+                this.setState({note: res.data})
+            })
     }
 
     render() {
+        let display = "";
+
         return(
-            <div>
-                <img className="bottle" src={window.bottle}/>
-                <div className="info">
-                    <div className="namePlus">
-                        <h1 className="name">Wine: {this.props.wine}</h1>
-                    </div>
-                    <h2>Winery: {this.props.winery}</h2>
-                    <h2>Vintage: {this.props.vintage}</h2>
-                    <h2>Color: {this.props.color}</h2>
-                    <h2>Country: {this.props.country}</h2>
-                    <h2>Region: {this.props.region}</h2>
-                    <h2>Bottle Size: {this.props.size}</h2>
-                    <h2>Rank: {this.props.rank} {this.props.year}</h2>
+            <li key={this.props.wineId}>
+                <div className="sub-header-rank">{this.props.rank}</div>
+                <div className="sub-header-wine">
+                    {this.props.wine}
+                    {display}
                 </div>
-                <hr/>
-            </div>
+                <div className="sub-header-winery">{this.props.winery}</div>
+                <div className="sub-header-vintage">{this.props.vintage}</div>
+        </li>
         )
     }
 }

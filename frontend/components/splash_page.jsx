@@ -25,7 +25,7 @@ const SplashPages = () => {
         </header> */}
         <div className="splash-slogan">
             <div className="slogan">
-                MasaWine~~~
+                TOP 100 LISTS
             </div>
             <Top/>
         </div>
