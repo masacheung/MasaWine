@@ -16,7 +16,7 @@ class Api::WineriesController < ApplicationController
         if @winery.save
             render :show
         else
-            render json: @winery.errors.full_messges, status: 422
+            render json: @winery.errors.full_messages, status: 422
         end
     end
 
@@ -42,7 +42,7 @@ class Api::WineriesController < ApplicationController
 
     private
     def winery_params
-        params.permit(:name, :country)
+        params.require(:winery).permit(:name, :country)
     end
 
 end
