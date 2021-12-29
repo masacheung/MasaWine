@@ -54,7 +54,13 @@ export default class WinesIndex extends React.Component {
             <div>
                 Wines Page
                 <form>
-                    
+                    <input className="createName" type="text" placeholder="Name" value={this.state.wineFull} onChange={this.update("wineFull")}/>
+                    <input className="createCounrty" type="text" placeholder="Vintage" value={this.state.vintage} onChange={this.update("vintage")}/>
+                    <input className="createCounrty" type="text" placeholder="Color" value={this.state.color} onChange={this.update("color")}/>
+                    <input className="createCounrty" type="text" placeholder="Country" value={this.state.country} onChange={this.update("country")}/>
+                    <input className="createCounrty" type="text" placeholder="Region" value={this.state.region} onChange={this.update("region")}/>
+                    <input className="createCounrty" type="text" placeholder="Size" value={this.state.alternateBottleSize} onChange={this.update("alternateBottleSize")}/>
+                    <input className="createForm" type="submit" value="Create"/>
                 </form>
             </div>
         )
