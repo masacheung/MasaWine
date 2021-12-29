@@ -53,6 +53,9 @@ export default class WinesIndex extends React.Component {
         return (
             <div>
                 Wines Page
+                <form>
+                    
+                </form>
             </div>
         )
     }
