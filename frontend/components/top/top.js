@@ -16,7 +16,6 @@ export default class Top extends React.Component {
         }
         this.sortByRank = this.sortByRank.bind(this);
         this.sortByWine = this.sortByWine.bind(this);
-        this.sortByWinery = this.sortByWinery.bind(this);
         this.sortByVintage = this.sortByVintage.bind(this);
         this.sortByScore = this.sortByScore.bind(this);
         this.sortByPrice = this.sortByPrice.bind(this);
@@ -49,8 +48,8 @@ export default class Top extends React.Component {
     sortByWine(){
         let arr = this.state.top;
         arr = arr.sort((a,b) => {
-            let a_name = a.wine_full.toLowerCase(),
-                b_name = b.wine_full.toLowerCase()
+            let a_name = a.winery_full + a.wine_full.toLowerCase(),
+                b_name = b.winery_full + b.wine_full.toLowerCase()
             if (a_name < b_name){
                 return -1;
             }
@@ -68,33 +67,6 @@ export default class Top extends React.Component {
                     sortedName: !this.state.sortedName, 
                     sortedRank: false,
                     sortedWinery: false,
-                    sortedVintage: false,
-                    sortedScore: false,
-                    sortedPrice: false});
-    }
-
-    sortByWinery(){
-        let arr = this.state.top;
-        arr = arr.sort((a,b) => {
-            let a_name = a.winery_full.toLowerCase(),
-                b_name = b.winery_full.toLowerCase()
-            if (a_name < b_name){
-                return -1;
-            }
-            if (a_name > b_name){
-                return 1;
-            }
-            return 0;
-        })
-        
-        if(this.state.sortedWinery){
-            arr = arr.reverse();
-        }
-
-        this.setState({top: arr, 
-                    sortedWinery: !this.state.sortedWinery, 
-                    sortedRank: false,
-                    sortedName: false,
                     sortedVintage: false,
                     sortedScore: false,
                     sortedPrice: false});
@@ -172,9 +144,12 @@ export default class Top extends React.Component {
         let display;
 
         if(this.state.search.length > 0){
-            display = this.state.top.filter(wine =>
-                wine.wine_full.toLowerCase().includes(this.state.search.toLowerCase()) ||
-                wine.winery_full.toLowerCase().includes(this.state.search.toLowerCase()))
+            display = this.state.top.filter(wine =>{
+                let name = wine.winery_full + " " + wine.wine_full;
+                return name.toLowerCase().includes(this.state.search.toLowerCase())
+            })
+                // wine.wine_full.toLowerCase().includes(this.state.search.toLowerCase()) ||
+                // wine.winery_full.toLowerCase().includes(this.state.search.toLowerCase()))
         }else {
             display = this.state.top;
         }
@@ -201,10 +176,7 @@ export default class Top extends React.Component {
                             Wine
                             <img className="sortImg" src={window.sort}/>
                         </button>
-                        <button className="sub-header-winery" onClick={this.sortByWinery}>
-                            Winery
-                            <img className="sortImg" src={window.sort}/>
-                        </button>
+
                         <button className="sub-header-vintage" onClick={this.sortByVintage}>
                             Vintage
                             <img className="sortImg" src={window.sort}/>
@@ -223,14 +195,13 @@ export default class Top extends React.Component {
                             <li key={wine.id}>
                                 <div className="sub-header-rank">{wine.top100_rank}</div>
                                 <div className="sub-header-wine">
-                                    {wine.wine_full}
+                                    <b>{wine.winery_full}</b> &nbsp; {wine.wine_full}
                                 </div>
                                 <div className="note">
                                     Tasting Note<br/><br/>
                                     {wine.note}
                                 </div>
 
-                                <div className="sub-header-winery">{wine.winery_full}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
                                 <div className="sub-header-score">{wine.score}</div>
                                 <div className="sub-header-score">${wine.price}</div>

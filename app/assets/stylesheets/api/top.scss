@@ -38,7 +38,7 @@
 
         .sub-header-rank {
             display: flex;
-            width: 7%;
+            width: 15%;
             flex-direction: row;
             text-align: center;
 
@@ -50,31 +50,22 @@
 
         .sub-header-wine {
             display: flex;
-            width: 40%;
+            width: 50%;
             flex-direction: row;
             line-height: 24px;
-        }
-
-        .sub-header-winery {
-            display: flex;
-            flex-direction: row;
-            width: 26.5%;
-            line-height: 24px;
-            text-align: left;
-
         }
 
         .sub-header-vintage {
             display: flex;
             flex-direction: row;
-            width: 10%;
+            width: 11%;
             text-align: center;
         }
 
         .sub-header-score{
             display: flex;
             flex-direction: row;
-            width: 9%;
+            width: 11%;
             text-align: center;
         }
     }
