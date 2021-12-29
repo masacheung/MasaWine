@@ -1,0 +1,50 @@
+.wineries-ul {
+
+    li:first-child {
+        font-size: 20px;
+        font-weight: bold;
+        border-top: 1px solid #ffffff;
+    }
+    
+    li:nth-child(even) {
+        background-color: #eeeeee;
+    }
+
+    li:last-child {
+        margin-bottom: 5%;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        min-height: 30px;
+        height: auto;
+        font-size: 14px;
+        padding: 5px 5px 5px 5px;
+
+        .sortImg{
+            width:20px;
+        }
+
+        .sub-header-winery {
+            display: flex;
+            width: 70%;
+            flex-direction: row;
+            line-height: 24px;
+        }
+
+        .sub-header-country {
+            display: flex;
+            flex-direction: row;
+            width: 10%;
+            text-align: center;
+        }
+
+        .sub-header-actions{
+            display: flex;
+            flex-direction: row;
+            width: 20%;
+            text-align: center;
+        }
+    }
+}

@@ -7,7 +7,7 @@ export default class WineriesIndex extends React.Component {
             name: "",
             country: ""
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
@@ -31,20 +31,23 @@ export default class WineriesIndex extends React.Component {
         this.setState({name: "", country: ""})
     }
 
+    handleDelete(){
+
+    }
+
     render() {
 
         return (
-            <div>
+            <div className="list">
                 Wineries Page
                 <form onSubmit={this.handleSubmit}>
                     <input className="createName" type="text" placeholder="Name" value={this.state.name} onChange={this.update("name")}/>
                     <input className="createCounrty" type="text" placeholder="Country" value={this.state.country} onChange={this.update("country")}/>
                     <input className="createForm" type="submit" value="Create"/>
                 </form>
-                <ul className="top100-ul">
+                <ul className="wineries-ul">
                     <li>
-
-                        <div className="sub-header-Winery">
+                        <div className="sub-header-winery">
                             Winery
                             <img className="sortImg" src={window.sort}/>
                         </div>
@@ -57,11 +60,11 @@ export default class WineriesIndex extends React.Component {
                     </li>
                     {this.props.wineries.map(winery => 
                             <li key={winery.id}>
-                                <div className="sub-header-wine">
+                                <div className="sub-header-winery">
                                     {winery.name}
                                 </div>
                                 <div className="sub-header-country">{winery.country}</div>
-                                <div>
+                                <div className="sub-header-actions">
                                     <button>Update</button>
                                     <button>Delete</button>
                                 </div>
