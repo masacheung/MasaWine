@@ -8,6 +8,7 @@ export default class WineriesIndex extends React.Component {
             country: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount(){
@@ -31,8 +32,8 @@ export default class WineriesIndex extends React.Component {
         this.setState({name: "", country: ""})
     }
 
-    handleDelete(){
-
+    handleDelete(wineryId){
+        this.props.deleteWinery(wineryId)
     }
 
     render() {
@@ -66,7 +67,7 @@ export default class WineriesIndex extends React.Component {
                                 <div className="sub-header-country">{winery.country}</div>
                                 <div className="sub-header-actions">
                                     <button>Update</button>
-                                    <button>Delete</button>
+                                    <button onClick={() => this.handleDelete(winery.id)}>Delete</button>
                                 </div>
                             </li>
                         )}
