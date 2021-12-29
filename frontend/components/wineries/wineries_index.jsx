@@ -32,7 +32,7 @@ export default class WineriesIndex extends React.Component {
     }
 
     render() {
-        console.log(this.props.wineries)
+
         return (
             <div>
                 Wineries Page
@@ -41,7 +41,35 @@ export default class WineriesIndex extends React.Component {
                     <input className="createCounrty" type="text" placeholder="Country" value={this.state.country} onChange={this.update("country")}/>
                     <input className="createForm" type="submit" value="Create"/>
                 </form>
+                <ul className="top100-ul">
+                    <li>
+
+                        <div className="sub-header-Winery">
+                            Winery
+                            <img className="sortImg" src={window.sort}/>
+                        </div>
+
+                        <div className="sub-header-country">
+                            Country
+                            <img className="sortImg" src={window.sort}/>
+                        </div>
+                        <div className="sub-header-actions">ACTIONS</div>
+                    </li>
+                    {this.props.wineries.map(winery => 
+                            <li key={winery.id}>
+                                <div className="sub-header-wine">
+                                    {winery.name}
+                                </div>
+                                <div className="sub-header-country">{winery.country}</div>
+                                <div>
+                                    <button>Update</button>
+                                    <button>Delete</button>
+                                </div>
+                            </li>
+                        )}
+                </ul>
             </div>
         )
+        
     }
 }

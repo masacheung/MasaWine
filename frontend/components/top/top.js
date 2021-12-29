@@ -9,7 +9,6 @@ export default class Top extends React.Component {
             search: "",
             sortedRank: true,
             sortedName: false,
-            sortedWinery: false,
             sortedVintage: false,
             sortedScore: false,
             sortedPrice: false
@@ -39,7 +38,6 @@ export default class Top extends React.Component {
         this.setState({top: arr, 
                     sortedRank: !this.state.sortedRank, 
                     sortedName: false,
-                    sortedWinery: false,
                     sortedVintage: false,
                     sortedScore: false,
                     sortedPrice: false});
@@ -66,7 +64,6 @@ export default class Top extends React.Component {
         this.setState({top: arr, 
                     sortedName: !this.state.sortedName, 
                     sortedRank: false,
-                    sortedWinery: false,
                     sortedVintage: false,
                     sortedScore: false,
                     sortedPrice: false});
@@ -86,7 +83,6 @@ export default class Top extends React.Component {
                 sortedVintage: !this.state.sortedVintage, 
                 sortedRank: false,
                 sortedName: false,
-                sortedWinery: false,
                 sortedScore: false,
                 sortedPrice: false});
         }else{
@@ -94,7 +90,6 @@ export default class Top extends React.Component {
                 sortedVintage: !this.state.sortedVintage, 
                 sortedRank: false,
                 sortedName: false,
-                sortedWinery: false,
                 sortedScore: false,
                 sortedPrice: false});
         }
@@ -113,7 +108,6 @@ export default class Top extends React.Component {
                     sortedRank: false,
                     sortedName: false,
                     sortedVintage: false,
-                    sortedWinery: false,
                     sortedPrice: false});
     }
 
@@ -148,8 +142,6 @@ export default class Top extends React.Component {
                 let name = wine.winery_full + " " + wine.wine_full;
                 return name.toLowerCase().includes(this.state.search.toLowerCase())
             })
-                // wine.wine_full.toLowerCase().includes(this.state.search.toLowerCase()) ||
-                // wine.winery_full.toLowerCase().includes(this.state.search.toLowerCase()))
         }else {
             display = this.state.top;
         }

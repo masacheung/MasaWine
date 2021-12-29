@@ -27,7 +27,7 @@ export default class WinesIndex extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        let winery = {
+        let wine = {
             wine_full: this.state.wine_full,
             vintage: this.state.vintage,
             color: this.state.color,
@@ -37,7 +37,7 @@ export default class WinesIndex extends React.Component {
             wineryId: this.state.wineryId
         }
 
-        this.props.createWinery(winery);
+        this.props.createWine(wine);
         this.setState({wineFull: "",
                     vintage: "",
                     color: "",
