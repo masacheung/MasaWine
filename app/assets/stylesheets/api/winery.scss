@@ -45,6 +45,32 @@
             flex-direction: row;
             width: 20%;
             text-align: center;
+
+            .update-button {
+                background-color: #0099ff;
+                border-radius: 3px;
+                border: none;
+                margin: 0px 5px 0px 5px;
+                height: 25px;
+                padding: 5px 10px 5px 12px;
+            }
+
+            .update-button:hover {
+                background-color: #18a3ff;
+            }
+
+            .delete-button {
+                background-color: red;
+                border-radius: 3px;
+                border: none;
+                margin: 0px 5px 0px 5px;
+                height: 25px;
+                padding: 5px 10px 5px 12px;
+            }
+
+            .delete-button:hover {
+                background-color: lightcoral;
+            }
         }
     }
 }

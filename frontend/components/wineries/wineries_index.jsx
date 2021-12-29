@@ -28,7 +28,8 @@ export default class WineriesIndex extends React.Component {
             country: this.state.country
         }
 
-        this.props.createWinery(winery);
+        this.props.createWinery(winery)
+            .then(() => this.props.fetchWineries());
         this.setState({name: "", country: ""})
     }
 
@@ -66,8 +67,8 @@ export default class WineriesIndex extends React.Component {
                                 </div>
                                 <div className="sub-header-country">{winery.country}</div>
                                 <div className="sub-header-actions">
-                                    <button>Update</button>
-                                    <button onClick={() => this.handleDelete(winery.id)}>Delete</button>
+                                    <button className="update-button">Update</button>
+                                    <button className="delete-button" onClick={() => this.handleDelete(winery.id)}>Delete</button>
                                 </div>
                             </li>
                         )}
