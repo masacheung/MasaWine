@@ -1,4 +1,5 @@
 import React from "react";
+import Modal from "react-modal";
 
 export default class WinesIndex extends React.Component {
     constructor(props){
@@ -10,9 +11,13 @@ export default class WinesIndex extends React.Component {
             country: "",
             region: "",
             alternateBottleSize: "",
-            wineryId: ""
+            wineryId: "",
+            search: "",
+            modal: false
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
     componentDidMount(){
@@ -47,12 +52,45 @@ export default class WinesIndex extends React.Component {
                     wineryId: ""})
     }
 
+    handleOpenModal() {
+        this.setState({modal: true})
+    }
+
+    handleCloseModal() {
+        this.setState({modal: false})
+    }
+
     render() {
         console.log(this.props.wines);
 
         return (
-            <div>
-                Wines Page
+            <div className="splash">
+                <div className="splash-slogan">
+                    <div className="slogan">Wines Page</div>
+                </div>
+                <div className="wines-list">
+                <div className="search">
+                        <form>
+                            <input 
+                                type="text"
+                                placeholder="Search by wine"
+                                onChange={this.update("search")}
+                                value={this.state.search}
+                            />
+                        </form>
+                    </div>
+                    <button className="create-winery" type="submit" >Create Winery</button>
+                    <ul className="wines-ul">
+                        <li>
+                            <div>Wine</div>
+                            <div>Vintage</div>
+                            <div>Color</div>
+                            <div>Country</div>
+                            <div>Region</div>
+                            <div>Size</div>
+                        </li>
+                    </ul>
+                </div>
                 <form>
                     <input className="createName" type="text" placeholder="Name" value={this.state.wineFull} onChange={this.update("wineFull")}/>
                     <input className="createCounrty" type="text" placeholder="Vintage" value={this.state.vintage} onChange={this.update("vintage")}/>
