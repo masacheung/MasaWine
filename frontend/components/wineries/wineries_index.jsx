@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
 
 export default class WineriesIndex extends React.Component {
     constructor(props){
@@ -152,7 +153,7 @@ export default class WineriesIndex extends React.Component {
                         {display.map(winery => 
                                 <li key={winery.id}>
                                     <div className="sub-header-winery">
-                                        {winery.name}
+                                        <Link to={`/wineries/${winery.id}`}>{winery.name}</Link>
                                     </div>
                                     <div className="sub-header-country">{winery.country}</div>
                                     <div className="sub-header-actions">

@@ -152,7 +152,7 @@ export default class WinesIndex extends React.Component {
                                 <div className="sub-header-country">{wine.region}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
                                 <div className="sub-header-vintage"> {wine.color}</div>
-                                <div className="sub-header-vintage">{wine.alternate_bottle_size} mL</div>
+                                {wine.alternate_bottle_size === "" ? <div className="sub-header-vintage"></div> : <div className="sub-header-vintage">{wine.alternate_bottle_size} mL</div>}
                                 <div className="sub-header-actions">
                                     <button className="update-button" onClick={() => this.handleOpenRenameModal(wine)}>Update</button>
                                     <button className="delete-button" onClick={() => this.handleDelete(wine.id)}>Delete</button>
