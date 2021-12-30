@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :wineries
     resources :wines
+    resources :tasting_notes
   end
 
   root to: 'static_pages#root'

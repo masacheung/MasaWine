@@ -1,0 +1,1 @@
+json.extract! tasting_note, :id, :username, :title, :body, :wine_id
