@@ -40,6 +40,7 @@
             flex-direction: row;
             width: 10%;
             text-align: center;
+            justify-content: center;
         }
 
         .sub-header-actions{
@@ -47,6 +48,7 @@
             flex-direction: row;
             width: 20%;
             text-align: center;
+            justify-content: center;
 
             .update-button {
                 background-color: #0099ff;
