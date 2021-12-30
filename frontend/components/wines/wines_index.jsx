@@ -140,12 +140,12 @@ export default class WinesIndex extends React.Component {
                         </li>
                         {display.map(wine => 
                             <li key={wine.id}>
-                                <div className="sub-header-wine">{wine.wine_full}</div>
+                                <div className="sub-header-wine"><b>{wine.winery_id}</b>{wine.wine_full}</div>
                                 <div className="sub-header-country">{wine.country}</div>
                                 <div className="sub-header-country">{wine.region}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
                                 <div className="sub-header-vintage"> {wine.color}</div>
-                                <div className="sub-header-vintage">{wine.alternate_bottle_size}</div>
+                                <div className="sub-header-vintage">{wine.alternate_bottle_size} mL</div>
                                 <div className="sub-header-actions">
                                     <button className="update-button" onClick={() => this.handleOpenRenameModal(wine)}>Update</button>
                                     <button className="delete-button" onClick={() => this.handleDelete(wine.id)}>Delete</button>
@@ -169,7 +169,7 @@ export default class WinesIndex extends React.Component {
                             <input className="modal-input" type="text" placeholder="Size" value={this.state.vintage} onChange={this.update("vintage")}/>
                             <lable className="modal-name">Color: </lable>
                             <input className="modal-input" type="text" placeholder="Color" value={this.state.color} onChange={this.update("color")}/>
-                            <lable className="modal-name">Size: </lable>
+                            <lable className="modal-name">Size(mL): </lable>
                             <input className="modal-input" type="text" placeholder="Size" value={this.state.alternateBottleSize} onChange={this.update("alternateBottleSize")}/>
                             <div className="modal-buttons">
                                 <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
@@ -192,7 +192,7 @@ export default class WinesIndex extends React.Component {
                             <input className="modal-input" type="text" placeholder="Size" value={this.state.renameVintage} onChange={this.update("renameVintage")}/>
                             <lable className="modal-name">Color: </lable>
                             <input className="modal-input" type="text" placeholder="Color" value={this.state.renameColor} onChange={this.update("renameColor")}/>
-                            <lable className="modal-name">Size: </lable>
+                            <lable className="modal-name">Size(mL): </lable>
                             <input className="modal-input" type="text" placeholder="Size" value={this.state.renameAlternateBottleSize} onChange={this.update("renameAlternateBottleSize")}/>
                             <div className="modal-buttons">
                                 <button className="cancel" onClick={this.handleCloseRenameModal}>Cancel</button>
