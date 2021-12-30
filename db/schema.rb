@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_30_204939) do
+ActiveRecord::Schema.define(version: 2021_12_30_231031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tasting_notes", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "title"
+    t.text "body"
+    t.integer "wine_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wine_id"], name: "index_tasting_notes_on_wine_id"
+  end
 
   create_table "wineries", force: :cascade do |t|
     t.string "name", null: false
