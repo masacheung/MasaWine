@@ -52,7 +52,7 @@ export default class WinesIndex extends React.Component {
             country: this.state.country,
             region: this.state.region,
             alternate_bottle_size: this.state.alternateBottleSize,
-            wineryId: this.state.wineryId
+            winery_id: this.state.wineryId
         }
 
         this.props.createWine(wine);
@@ -79,10 +79,10 @@ export default class WinesIndex extends React.Component {
     }
 
     handleOpenRenameModal(wine){
-        this.setState({rename: wine, renameWineFull: wine.wineFull, 
+        this.setState({rename: wine, renameWineFull: wine.wine_full, 
                     renameCountry: wine.country, renameColor: wine.color,
-                    renameRegion: wine.region, renameAlternateBottleSize: wine.alternateBottleSize,
-                    renameWineryId: wine.wineryId, renameVintage: wine.vintage,
+                    renameRegion: wine.region, renameAlternateBottleSize: wine.alternate_bottle_size,
+                    renameWineryId: wine.winery_id, renameVintage: wine.vintage,
                     renameModal: true})
     }
 
@@ -97,7 +97,7 @@ export default class WinesIndex extends React.Component {
         wine.vintage = this.state.renameVintage;
         wine.region - this.state.renameRegion;
         wine.alternateBottleSize = this.state.renameAlternateBottleSize;
-        wine.wineryId = this.state.renameWineryId;
+        wine.winery_id = this.state.renameWineryId;
         wine.color = this.state.renameColor;
 
         this.props.updateWine(wine)
@@ -109,6 +109,7 @@ export default class WinesIndex extends React.Component {
         let display;
 
         display = this.props.wines;
+        console.log(display);
 
         return (
             <div className="splash">
@@ -139,12 +140,12 @@ export default class WinesIndex extends React.Component {
                         </li>
                         {display.map(wine => 
                             <li key={wine.id}>
-                                <div className="sub-header-wine">{wine.name}</div>
+                                <div className="sub-header-wine">{wine.wine_full}</div>
                                 <div className="sub-header-country">{wine.country}</div>
                                 <div className="sub-header-country">{wine.region}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
                                 <div className="sub-header-vintage"> {wine.color}</div>
-                                <div className="sub-header-vintage">{wine.size}</div>
+                                <div className="sub-header-vintage">{wine.alternate_bottle_size}</div>
                                 <div className="sub-header-actions">
                                     <button className="update-button" onClick={() => this.handleOpenRenameModal(wine)}>Update</button>
                                     <button className="delete-button" onClick={() => this.handleDelete(wine.id)}>Delete</button>
@@ -156,8 +157,10 @@ export default class WinesIndex extends React.Component {
                 <Modal isOpen={this.state.modal} className="overlay">
                     <div className="my-modal">
                             <h2 className="modal-title">Create New Wine</h2>
-                            <lable className="modal-name">Name: </lable>
+                            <lable className="modal-name">Wine Name: </lable>
                             <input className="modal-input" type="text" placeholder="Wine Name" value={this.state.wineFull} onChange={this.update("wineFull")}/>
+                            <lable className="modal-name">Winery Name: </lable>
+                            <input className="modal-input" type="text" placeholder="Winery Name" value={this.state.wineryId} onChange={this.update("wineryId")}/>
                             <lable className="modal-name">Country: </lable>
                             <input className="modal-input" type="text" placeholder="Country" value={this.state.country} onChange={this.update("country")}/>
                             <lable className="modal-name">Region: </lable>
@@ -176,9 +179,11 @@ export default class WinesIndex extends React.Component {
                 </Modal>
                 <Modal isOpen={this.state.renameModal} className="overlay">
                     <div className="my-modal">
-                            <h2 className="modal-title">Create New Wine</h2>
-                            <lable className="modal-name">Name: </lable>
+                            <h2 className="modal-title">Update Wine</h2>
+                            <lable className="modal-name">Wine Name: </lable>
                             <input className="modal-input" type="text" placeholder="Wine Name" value={this.state.renameWineFull} onChange={this.update("renameWineFull")}/>
+                            <lable className="modal-name">Winery Name: </lable>
+                            <input className="modal-input" type="text" placeholder="Winery Name" value={this.state.renameWineryId} onChange={this.update("renameWineryId")}/>
                             <lable className="modal-name">Country: </lable>
                             <input className="modal-input" type="text" placeholder="Country" value={this.state.renameCountry} onChange={this.update("renameCountry")}/>
                             <lable className="modal-name">Region: </lable>
@@ -190,7 +195,7 @@ export default class WinesIndex extends React.Component {
                             <lable className="modal-name">Size: </lable>
                             <input className="modal-input" type="text" placeholder="Size" value={this.state.renameAlternateBottleSize} onChange={this.update("renameAlternateBottleSize")}/>
                             <div className="modal-buttons">
-                                <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
+                                <button className="cancel" onClick={this.handleCloseRenameModal}>Cancel</button>
                                 <button className="continue" onClick={this.handleRename}>Create</button>
                             </div>
                         </div>
