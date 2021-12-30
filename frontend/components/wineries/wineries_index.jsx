@@ -7,6 +7,7 @@ export default class WineriesIndex extends React.Component {
         this.state = {
             name: "",
             country: "",
+            search: "",
             modal: false,
             renameModal: false,
             rename: null,
@@ -18,6 +19,7 @@ export default class WineriesIndex extends React.Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleOpenRenameModal = this.handleOpenRenameModal.bind(this);
+        this.handleCloseRenameModal = this.handleCloseRenameModal.bind(this);
         this.handleRename = this.handleRename.bind(this);
     }
 
@@ -75,10 +77,30 @@ export default class WineriesIndex extends React.Component {
     }
 
     render() {
+        let display;
+
+        if(this.state.search.length > 0){
+            display = this.props.wineries.filter(winery => {
+                let name = winery.name + " " + winery.country;
+                return name.toLowerCase().includes(this.state.search.toLowerCase())
+            })
+        }else {
+            display = this.props.wineries;
+        }
 
         return (
             <div className="list">
                 Wineries Page
+                <div className="search">
+                    <form>
+                        <input 
+                            type="text"
+                            placeholder="Search by winery / country"
+                            onChange={this.update("search")}
+                            value={this.state.search}
+                        />
+                    </form>
+                </div>
                 <button onClick={this.handleOpenModal} className="createForm" type="submit" >Create Winery</button>
                 <ul className="wineries-ul">
                     <li>
@@ -93,7 +115,7 @@ export default class WineriesIndex extends React.Component {
                         </div>
                         <div className="sub-header-actions">ACTIONS</div>
                     </li>
-                    {this.props.wineries.map(winery => 
+                    {display.map(winery => 
                             <li key={winery.id}>
                                 <div className="sub-header-winery">
                                     {winery.name}
@@ -107,23 +129,28 @@ export default class WineriesIndex extends React.Component {
                         )}
                 </ul>
                 <Modal isOpen={this.state.modal} className="overlay">
-                    <div>
-                        <input type="text" placeholder="Winery Name" value={this.state.name} onChange={this.update("name")}/>
-                        <input type="text" placeholder="Winery Country" value={this.state.country} onChange={this.update("country")}/>
-                        <div>
-                            <button onClick={this.handleCloseModal}>Cancel</button>
-                            <button onClick={this.handleSubmit}>Create</button>
+                    <div className="my-modal">
+                        <h2 className="modal-title">Create New Winery</h2>
+                        <lable className="modal-name">Name: </lable>
+                        <input className="modal-input" type="text" placeholder="Winery Name" value={this.state.name} onChange={this.update("name")}/>
+                        <lable className="modal-name">Country: </lable>
+                        <input className="modal-input" type="text" placeholder="Winery Country" value={this.state.country} onChange={this.update("country")}/>
+                        <div className="modal-buttons">
+                            <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
+                            <button className="continue" onClick={this.handleSubmit}>Create</button>
                         </div>
                     </div>
                 </Modal>
                 <Modal isOpen={this.state.renameModal} className="overlay">
-                    <div>
+                    <div className="my-modal">
                         <h2>Update Winery</h2>
-                        <input type="text" placeholder="Winery Name" value={this.state.renameWinery} onChange={this.update("renameWinery")}/>
-                        <input type="text" placeholder="Winery Country" value={this.state.renameCountry} onChange={this.update("renameCountry")}/>
-                        <div>
-                            <button onClick={this.handleCloseRenameModal}>Cancel</button>
-                            <button onClick={this.handleRename}>Create</button>
+                        <lable className="modal-name">Name: </lable>
+                        <input className="modal-input" type="text" placeholder="Winery Name" value={this.state.renameWinery} onChange={this.update("renameWinery")}/>
+                        <lable className="modal-name">Country: </lable>
+                        <input className="modal-input" type="text" placeholder="Winery Country" value={this.state.renameCountry} onChange={this.update("renameCountry")}/>
+                        <div className="modal-buttons">
+                            <button className="cancel" onClick={this.handleCloseRenameModal}>Cancel</button>
+                            <button className="continue" onClick={this.handleRename}>Create</button>
                         </div>
                     </div>
 
