@@ -39,7 +39,6 @@ export default class WineryShow extends React.Component{
                         <div className="sub-header-vintage">Vintage</div>
                         <div className="sub-header-vintage"> Color</div>
                         <div className="sub-header-vintage">Size</div>
-                        <div className="sub-header-actions">Actions</div>
                     </li>
                     {display.map(wine => 
                         <li key={wine.id}>
