@@ -1,11 +1,10 @@
-.wineries-list {
+.wines-list {
     display: block;
     max-width: 80%;
     margin-left: 9%;
 }
 
-.wineries-ul {
-
+.wines-ul {
     li:first-child {
         font-size: 20px;
         font-weight: bold;
@@ -28,14 +27,21 @@
             width:20px;
         }
 
-        .sub-header-winery {
+        .sub-header-wine {
             display: flex;
-            width: 70%;
+            width: 40%;
             flex-direction: row;
             line-height: 24px;
         }
 
         .sub-header-country {
+            display: flex;
+            flex-direction: row;
+            width: 10%;
+            text-align: center;
+        }
+
+        .sub-header-vintage {
             display: flex;
             flex-direction: row;
             width: 10%;
@@ -75,19 +81,4 @@
             }
         }
     }
-}
-
-
-.create-winery {
-    background-color: #0099ff;
-    border-radius: 3px;
-    border: none;
-    margin: 0px 5px 0px 5px;
-    height: 25px;
-    padding: 5px 10px 5px 12px;
-    margin-left: 43%;
-}
-
-.create-winery:hover {
-    background-color: #18a3ff;
 }

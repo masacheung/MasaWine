@@ -116,7 +116,7 @@ export default class WineriesIndex extends React.Component {
                                 Country
                                 <img className="sortImg" src={window.sort}/>
                             </div>
-                            <div className="sub-header-actions">ACTIONS</div>
+                            <div className="sub-header-actions">Actions</div>
                         </li>
                         {display.map(winery => 
                                 <li key={winery.id}>

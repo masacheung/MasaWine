@@ -49,7 +49,8 @@ export default class WinesIndex extends React.Component {
                     country: "",
                     region: "",
                     alternateBottleSize: "",
-                    wineryId: ""})
+                    wineryId: ""});
+        this.handleCloseModal();
     }
 
     handleOpenModal() {
@@ -79,27 +80,40 @@ export default class WinesIndex extends React.Component {
                             />
                         </form>
                     </div>
-                    <button className="create-winery" type="submit" >Create Winery</button>
+                    <button className="create-winery" onClick={this.handleOpenModal} type="submit" >Create Winery</button>
                     <ul className="wines-ul">
                         <li>
-                            <div>Wine</div>
-                            <div>Vintage</div>
-                            <div>Color</div>
-                            <div>Country</div>
-                            <div>Region</div>
-                            <div>Size</div>
+                            <div className="sub-header-wine">Wine</div>
+                            <div className="sub-header-country">Country</div>
+                            <div className="sub-header-country">Region</div>
+                            <div className="sub-header-vintage">Vintage</div>
+                            <div className="sub-header-vintage"> Color</div>
+                            <div className="sub-header-vintage">Size</div>
+                            <div className="sub-header-actions">Actions</div>
                         </li>
                     </ul>
                 </div>
-                <form>
-                    <input className="createName" type="text" placeholder="Name" value={this.state.wineFull} onChange={this.update("wineFull")}/>
-                    <input className="createCounrty" type="text" placeholder="Vintage" value={this.state.vintage} onChange={this.update("vintage")}/>
-                    <input className="createCounrty" type="text" placeholder="Color" value={this.state.color} onChange={this.update("color")}/>
-                    <input className="createCounrty" type="text" placeholder="Country" value={this.state.country} onChange={this.update("country")}/>
-                    <input className="createCounrty" type="text" placeholder="Region" value={this.state.region} onChange={this.update("region")}/>
-                    <input className="createCounrty" type="text" placeholder="Size" value={this.state.alternateBottleSize} onChange={this.update("alternateBottleSize")}/>
-                    <input className="createForm" type="submit" value="Create"/>
-                </form>
+                <Modal isOpen={this.state.modal} className="overlay">
+                    <div className="my-modal">
+                            <h2 className="modal-title">Create New Wine</h2>
+                            <lable className="modal-name">Name: </lable>
+                            <input className="modal-input" type="text" placeholder="Wine Name" value={this.state.wineFull} onChange={this.update("wineFull")}/>
+                            <lable className="modal-name">Country: </lable>
+                            <input className="modal-input" type="text" placeholder="Country" value={this.state.country} onChange={this.update("country")}/>
+                            <lable className="modal-name">Region: </lable>
+                            <input className="modal-input" type="text" placeholder="Region" value={this.state.region} onChange={this.update("region")}/>
+                            <lable className="modal-name">Vintage: </lable>
+                            <input className="modal-input" type="text" placeholder="Size" value={this.state.vintage} onChange={this.update("vintage")}/>
+                            <lable className="modal-name">Color: </lable>
+                            <input className="modal-input" type="text" placeholder="Color" value={this.state.color} onChange={this.update("color")}/>
+                            <lable className="modal-name">Size: </lable>
+                            <input className="modal-input" type="text" placeholder="Size" value={this.state.alternateBottleSize} onChange={this.update("alternateBottleSize")}/>
+                            <div className="modal-buttons">
+                                <button className="cancel" onClick={this.handleCloseModal}>Cancel</button>
+                                <button className="continue" onClick={this.handleSubmit}>Create</button>
+                            </div>
+                        </div>
+                </Modal>
             </div>
         )
     }
