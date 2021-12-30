@@ -92,11 +92,11 @@ export default class WinesIndex extends React.Component {
 
     handleRename(){
         let wine = this.state.rename;
-        wine.name = this.state.renameWine;
+        wine.wine_full = this.state.renameWineFull;
         wine.country = this.state.renameCountry;
         wine.vintage = this.state.renameVintage;
         wine.region - this.state.renameRegion;
-        wine.alternateBottleSize = this.state.renameAlternateBottleSize;
+        wine.alternate_bottle_size = this.state.renameAlternateBottleSize;
         wine.winery_id = this.state.renameWineryId;
         wine.color = this.state.renameColor;
 
@@ -108,8 +108,15 @@ export default class WinesIndex extends React.Component {
     render() {
         let display;
 
-        display = this.props.wines;
-        console.log(display);
+        if(this.state.search.length > 0){
+            display = this.props.wines.filter(wine =>{
+                let name = wine.winery_id + " " + wine.wine_full;
+                let revName = wine.wine_full + " " + wine.winery_id;
+                return name.toLowerCase().includes(this.state.search.toLowerCase()) || revName.toLowerCase().includes(this.state.search.toLowerCase())
+            })
+        }else {
+            display = this.props.wines;
+        }
 
         return (
             <div className="splash">
@@ -140,7 +147,7 @@ export default class WinesIndex extends React.Component {
                         </li>
                         {display.map(wine => 
                             <li key={wine.id}>
-                                <div className="sub-header-wine"><b>{wine.winery_id}</b>{wine.wine_full}</div>
+                                <div className="sub-header-wine"><b>{wine.winery_id}</b>&nbsp;{wine.wine_full}</div>
                                 <div className="sub-header-country">{wine.country}</div>
                                 <div className="sub-header-country">{wine.region}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
@@ -196,7 +203,7 @@ export default class WinesIndex extends React.Component {
                             <input className="modal-input" type="text" placeholder="Size" value={this.state.renameAlternateBottleSize} onChange={this.update("renameAlternateBottleSize")}/>
                             <div className="modal-buttons">
                                 <button className="cancel" onClick={this.handleCloseRenameModal}>Cancel</button>
-                                <button className="continue" onClick={this.handleRename}>Create</button>
+                                <button className="continue" onClick={this.handleRename}>Update</button>
                             </div>
                         </div>
                 </Modal>
