@@ -140,7 +140,8 @@ export default class Top extends React.Component {
         if(this.state.search.length > 0){
             display = this.state.top.filter(wine =>{
                 let name = wine.winery_full + " " + wine.wine_full;
-                return name.toLowerCase().includes(this.state.search.toLowerCase())
+                let revName = wine.wine_full + " " + wine.winery_full;
+                return name.toLowerCase().includes(this.state.search.toLowerCase()) || revName.toLowerCase().includes(this.state.search.toLowerCase())
             })
         }else {
             display = this.state.top;
