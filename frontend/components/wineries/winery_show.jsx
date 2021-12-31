@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 export default class WineryShow extends React.Component{
     constructor(props){
@@ -47,7 +48,9 @@ export default class WineryShow extends React.Component{
                         </li>
                         {display.map(wine => 
                             <li key={wine.id}>
-                                <div className="sub-header-wine"><b>{wine.winery_id}</b>&nbsp;{wine.wine_full}</div>
+                                <div className="sub-header-wine">
+                                    <Link to={`/wines/${wine.id}`}><b>{wine.winery_id}</b>&nbsp;{wine.wine_full}</Link>
+                                </div>
                                 <div className="sub-header-country">{wine.country}</div>
                                 <div className="sub-header-country">{wine.region}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
