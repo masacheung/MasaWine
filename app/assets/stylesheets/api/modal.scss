@@ -13,6 +13,7 @@
     border-radius: 4px;
     box-shadow: rgba(0,0,0,0.05) 0px 0.1rem 0.3rem, rgba(0,0,0,0.05) 0px 0.1rem 0.2 rem, rgba(0,0,0,0.05) 0px 0.5 rem 1.5rem;
     display: flex;
+    overflow-y: auto;
 
     h2 {
         padding: 20px;
@@ -33,7 +34,7 @@
         border-radius: 5px;
         border: 1px solid #4d4d4d;
         margin-top: 10px;
-        margin-bottom: 60px;
+        margin-bottom: 10px;
     }
 
     .modal-input:focus {
