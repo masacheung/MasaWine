@@ -12,6 +12,10 @@ export default class WineryShow extends React.Component{
 
 
     render(){
+        if(!this.props.winery){
+            return null;
+        }
+
         let display;
         if(this.props.wines){
             display = this.props.wines.filter(wine => wine.winery_id === this.props.winery.name);
@@ -25,6 +29,7 @@ export default class WineryShow extends React.Component{
                         </div>
                     </div>);
         }
+
         return(
             <div className="splash">
             <div className="splash-slogan">
