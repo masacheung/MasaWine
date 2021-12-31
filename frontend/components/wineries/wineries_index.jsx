@@ -93,7 +93,7 @@ export default class WineriesIndex extends React.Component {
         return (
             <div className="splash">
                 <div className="splash-slogan">
-                    <div className="slogan">Wineries Page</div>
+                    {display.length <= 1 ? <div className="slogan">Winery Page</div> : <div className="slogan">Wineries Page</div>}
                 </div>
                 <div className="wineries-list">
                     <div className="search">

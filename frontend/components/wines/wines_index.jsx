@@ -122,7 +122,7 @@ export default class WinesIndex extends React.Component {
         return (
             <div className="splash">
                 <div className="splash-slogan">
-                    <div className="slogan">Wines Page</div>
+                    {display.length <= 1 ? <div className="slogan">Wine Page</div> : <div className="slogan">Wines Page</div>}
                 </div>
                 <div className="wines-list">
                 <div className="search">
@@ -176,7 +176,7 @@ export default class WinesIndex extends React.Component {
                             <lable className="modal-name">Region: </lable>
                             <input className="modal-input" type="text" placeholder="Region" value={this.state.region} onChange={this.update("region")}/>
                             <lable className="modal-name">Vintage: </lable>
-                            <input className="modal-input" type="text" placeholder="Size" value={this.state.vintage} onChange={this.update("vintage")}/>
+                            <input className="modal-input" type="text" placeholder="Vintage" value={this.state.vintage} onChange={this.update("vintage")}/>
                             <lable className="modal-name">Color: </lable>
                             <input className="modal-input" type="text" placeholder="Color" value={this.state.color} onChange={this.update("color")}/>
                             <lable className="modal-name">Size(mL): </lable>

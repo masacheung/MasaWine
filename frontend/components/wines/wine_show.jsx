@@ -72,7 +72,7 @@ export default class WineShow extends React.Component{
                 </div>
                 <div className='tasting-notes-list'>
                     <ul className="tasting-notes-ul">
-                        Reviews!!!
+                        {display.length <= 1 ? <h1 className="header">Tasting Note!!!</h1> : <h1 className="header">Tasting Notes!!!</h1>}
                         {display.map(tasting_note => 
                             <li key={tasting_note.id}>
                                 <div className='sub-header'>
@@ -92,7 +92,7 @@ export default class WineShow extends React.Component{
                             </li>)}
                     </ul>
                 <form className="tasting-note-form" onSubmit={this.handleSubmit}>
-                    Write Your Own Review: 
+                    Write Your Own Tasting Note: 
                     <br/><br/>
                     <lable className="tasting-note-name">Username: </lable>
                     <input className="tasting-note-input" type="text" placeholder="Username" value={this.state.username} onChange={this.update("username")}/>
