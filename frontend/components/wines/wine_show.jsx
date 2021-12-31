@@ -80,8 +80,8 @@ export default class WineShow extends React.Component{
                                     </div>
                                     <div className='title'>Title: {tasting_note.title}</div>
                                     <div className='delete'>
-                                    <button className="delete-button" onClick={() => this.handleDelete(tasting_note.id)}>Delete</button>
-                                </div>
+                                        <button className="delete-button" onClick={() => this.handleDelete(tasting_note.id)}>Delete</button>
+                                    </div>
                                 </div>
                                 <div className="sub-header">
                                     Tasting Note:
