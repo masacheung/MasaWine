@@ -97,7 +97,7 @@ export default class WineShow extends React.Component{
                     <lable className="tasting-note-name">Username: </lable>
                     <input className="tasting-note-input" type="text" placeholder="Username" value={this.state.username} onChange={this.update("username")}/>
                     <lable className="tasting-note-name">Title: </lable>
-                    <input className="tasting-note-input" type="text" placeholder="Wine Name" value={this.state.title} onChange={this.update("title")}/>
+                    <input className="tasting-note-input" type="text" placeholder="Title" value={this.state.title} onChange={this.update("title")}/>
                     <br/>
                     <lable className="tasting-note-name">Body: </lable>   
                     <br/>
