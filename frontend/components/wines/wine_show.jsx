@@ -46,6 +46,11 @@ export default class WineShow extends React.Component{
             return null;
         }
 
+        let display;
+        if(this.props.tasting_notes){
+            display = this.props.tasting_notes.filter(tasting_note => tasting_note.wine_id === this.props.wine.id)
+        }
+
         return (
             <div className="splash">
                 <div className="splash-slogan">
@@ -67,7 +72,7 @@ export default class WineShow extends React.Component{
                 </div>
                 <div className='tasting-notes-list'>
                     <ul className="tasting-notes-ul">
-                        {this.props.tasting_notes.map(tasting_note => 
+                        {display.map(tasting_note => 
                             <li key={tasting_note.id}>
                                 <div className='sub-header'>
                                     <div className="username">
