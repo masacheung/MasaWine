@@ -111,12 +111,10 @@ export default class WineriesIndex extends React.Component {
                         <li>
                             <div className="sub-header-winery">
                                 Winery
-                                <img className="sortImg" src={window.sort}/>
                             </div>
 
                             <div className="sub-header-country">
                                 Country
-                                <img className="sortImg" src={window.sort}/>
                             </div>
                             <div className="sub-header-actions">Actions</div>
                         </li>
