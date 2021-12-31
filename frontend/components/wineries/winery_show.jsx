@@ -6,7 +6,7 @@ export default class WineryShow extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchWineries(this.props.match.params.winery_id);
+        this.props.fetchWineries(this.props.match.params.wineryId);
         this.props.fetchWines();
     }
 

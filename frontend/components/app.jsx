@@ -14,6 +14,7 @@ const App = () => (
         <Switch>
             <Route exact path="/" component={SplashPages}/>
             <Route exact path="/wines" component={WinesIndexContainer}/>
+            {/* <Route exact path="/wines/:wineId" component={}/> */}
             <Route exact path="/wineries" component={WineriesIndexContainer} />
             <Route exact path="/wineries/:wineryId" component={WineryShowContainer} />
             <Route component={RoutingError} />
