@@ -21,7 +21,7 @@ const SplashPages = () => {
                         Man Tat Masa Cheung
                     </li>
                     <li>
-                        <a href="https://masacheung.github.io/portfolio/" target="_blank" rel="noreferrer noopener">Portfolio</a>
+                        <a href="https://github.com/masacheung/MasaWine" target="_blank" rel="noreferrer noopener">Portfolio</a>
                     </li>
                 </ul>
             </div>
