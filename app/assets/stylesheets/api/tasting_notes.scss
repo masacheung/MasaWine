@@ -1,0 +1,71 @@
+// Place all the styles related to the TastingNotes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tasting-notes-ul{
+
+    li:nth-child(even) {
+        background-color: #eeeeee;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        min-height: 30px;
+        height: auto;
+        font-size: 14px;
+        padding: 5px 5px 5px 5px;
+
+
+        .sub-header-username {
+            display: flex;
+            width: 10%;
+            flex-direction: column;
+            line-height: 24px;
+        }
+
+        .sub-header-title {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .sub-header-delete {
+            display: flex;
+            flex-direction: row;
+            width: 10%;
+            text-align: center;
+        }
+
+    }
+}
+
+.tasting-note-form {
+    margin-left: 30%;
+
+
+    .tasting-note-input {
+        border: 1px solid black;
+    }
+    .textarea-input {
+        border: 1px solid black;
+    }
+
+    .tasting-note-input:focus, .textarea-input:focus {
+        border: 1px solid #73c2fb;
+    }
+
+    .tasting-note-button {
+        background-color: #47b2ff;
+        color: black;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .tasting-note-button:hover {
+        background-color: #73c2fb;
+        color: #000
+    }
+}

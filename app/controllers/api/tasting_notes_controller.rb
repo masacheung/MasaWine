@@ -32,6 +32,6 @@ class Api::TastingNotesController < ApplicationController
 
     private
     def note_params
-        params.require(:tastingnote).permit(:username, :title, :body, :wine_id)
+        params.require(:tasting_note).permit(:username, :title, :body, :wine_id)
     end
 end

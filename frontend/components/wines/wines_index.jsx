@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
 
 export default class WinesIndex extends React.Component {
     constructor(props){
@@ -147,12 +148,14 @@ export default class WinesIndex extends React.Component {
                         </li>
                         {display.map(wine => 
                             <li key={wine.id}>
-                                <div className="sub-header-wine"><b>{wine.winery_id}</b>&nbsp;{wine.wine_full}</div>
+                                <div className="sub-header-wine">
+                                    <Link to={`/wines/${wine.id}`}><b>{wine.winery_id}</b>&nbsp;{wine.wine_full}</Link>
+                                </div>
                                 <div className="sub-header-country">{wine.country}</div>
                                 <div className="sub-header-country">{wine.region}</div>
                                 <div className="sub-header-vintage">{wine.vintage}</div>
                                 <div className="sub-header-vintage"> {wine.color}</div>
-                                {wine.alternate_bottle_size === "" ? <div className="sub-header-vintage"></div> : <div className="sub-header-vintage">{wine.alternate_bottle_size} mL</div>}
+                                {wine.alternate_bottle_size === "" ? <div className="sub-header-vintage">N/A</div> : <div className="sub-header-vintage">{wine.alternate_bottle_size} mL</div>}
                                 <div className="sub-header-actions">
                                     <button className="update-button" onClick={() => this.handleOpenRenameModal(wine)}>Update</button>
                                     <button className="delete-button" onClick={() => this.handleDelete(wine.id)}>Delete</button>

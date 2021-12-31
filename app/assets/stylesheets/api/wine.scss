@@ -1,4 +1,4 @@
-.wines-list {
+.wines-list, .tasting-notes-list, .wineries-list  {
     display: block;
     max-width: 80%;
     margin-left: 9%;
@@ -48,39 +48,39 @@
             width: 10%;
             text-align: center;
         }
-
-        .sub-header-actions{
-            display: flex;
-            flex-direction: row;
-            width: 20%;
-            text-align: center;
-            justify-content: center;
-
-            .update-button {
-                background-color: #0099ff;
-                border-radius: 3px;
-                border: none;
-                margin: 0px 5px 0px 5px;
-                height: 25px;
-                padding: 5px 10px 5px 12px;
-            }
-
-            .update-button:hover {
-                background-color: #18a3ff;
-            }
-
-            .delete-button {
-                background-color: red;
-                border-radius: 3px;
-                border: none;
-                margin: 0px 5px 0px 5px;
-                height: 25px;
-                padding: 5px 10px 5px 12px;
-            }
-
-            .delete-button:hover {
-                background-color: lightcoral;
-            }
-        }
     }
+}
+
+.sub-header-actions{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    text-align: center;
+    justify-content: center;
+}
+
+.update-button {
+    background-color: #0099ff;
+    border-radius: 3px;
+    border: none;
+    margin: 0px 5px 0px 5px;
+    height: 25px;
+    padding: 5px 10px 5px 12px;
+}
+
+.update-button:hover {
+    background-color: #18a3ff;
+}
+
+.delete-button {
+    background-color: red;
+    border-radius: 3px;
+    border: none;
+    margin: 0px 5px 0px 5px;
+    height: 25px;
+    padding: 5px 10px 5px 12px;
+}
+
+.delete-button:hover {
+    background-color: lightcoral;
 }

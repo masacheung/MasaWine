@@ -6,7 +6,8 @@ import WineShow from "./wine_show";
 const mSTP = (state, ownProps) => {
     return {
         wine: state.entities.wines[ownProps.match.params.wineId],
-        wines: Object.values(state.entities.wines)
+        wines: Object.values(state.entities.wines),
+        tasting_notes: Object.values(state.entities.tasting_notes)
     }
 }
 
