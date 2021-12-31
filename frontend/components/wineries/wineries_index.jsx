@@ -47,36 +47,6 @@ export default class WineriesIndex extends React.Component {
         this.handleCloseModal();
     }
 
-    // sortByWineries(){
-    //     let arr = this.props.wineries;
-    //     arr = arr.sort((a,b) => {
-    //         let a_name = a.name.toLowerCase();
-    //         let b_name = b.name.toLowerCase();
-    //         if (a_name < b_name){
-    //             return -1;
-    //         }
-    //         if(a_name > b_name){
-    //             return 1;
-    //         }
-    //         return 0;
-    //     })
-    // }
-
-    // sortByCountry(){
-    //     let arr = this.props.wineries;
-    //     arr = arr.sort((a,b) => {
-    //         let a_country = a.country.toLowerCase();
-    //         let b_country = b.country.toLowerCase();
-    //         if (a_country < b_country){
-    //             return -1;
-    //         }
-    //         if(a_country > b_country){
-    //             return 1;
-    //         }
-    //         return 0;
-    //     })
-    // }
-
     handleDelete(wineryId){
         this.props.deleteWinery(wineryId)
     }

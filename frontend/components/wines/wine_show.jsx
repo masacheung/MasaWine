@@ -42,8 +42,6 @@ export default class WineShow extends React.Component{
     }
 
     render(){
-        console.log(this.props.tasting_notes);
-
         if(!this.props.wine){
             return null;
         }
