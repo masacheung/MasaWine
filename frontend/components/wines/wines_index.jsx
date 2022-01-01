@@ -129,7 +129,7 @@ export default class WinesIndex extends React.Component {
                         <form>
                             <input 
                                 type="text"
-                                placeholder="Search by wine"
+                                placeholder="Search by wine / winery"
                                 onChange={this.update("search")}
                                 value={this.state.search}
                             />
